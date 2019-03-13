@@ -1,6 +1,6 @@
 # Redux Demo
 
-[![Build Status](https://travis-ci.org/immnk/redux-demo.svg?branch=master)](https://travis-ci.org/immnk/redux-demo) [![Dependencies](https://david-dm.org/immnk/redux-demo.svg)](https://david-dm.org/) [![CodeFactor](https://www.codefactor.io/repository/github/immnk/redux-demo/badge)](https://www.codefactor.io/repository/github/immnk/redux-demo) [![Coverage Status](https://coveralls.io/repos/github/immnk/redux-demo/badge.svg?branch=master)](https://coveralls.io/github/immnk/redux-demo?branch=master) [![Tests](https://img.shields.io/badge/tests-covered-brightgreen.svg)](https://github.com/immnk/redux-demo/issues/5)
+[![Build Status](https://travis-ci.com/immnk/redux-demo.svg?branch=master)](https://travis-ci.org/immnk/redux-demo) [![Dependencies](https://david-dm.org/immnk/redux-demo.svg)](https://david-dm.org/) [![CodeFactor](https://www.codefactor.io/repository/github/immnk/redux-demo/badge)](https://www.codefactor.io/repository/github/immnk/redux-demo) [![Coverage Status](https://coveralls.io/repos/github/immnk/redux-demo/badge.svg?branch=master)](https://coveralls.io/github/immnk/redux-demo?branch=master) [![Tests](https://img.shields.io/badge/tests-covered-brightgreen.svg)](https://github.com/immnk/redux-demo/issues/5)
 
 > Redux Demo is to demostrate how a store can be created and used to manipulate state. This project create `dist` folder during build and deploy its content to `gh-pages` using [![Travis CI](https://img.shields.io/badge/travis%20ci-enabled-brightgreen.svg)](https://travis-ci.org/immnk/redux-demo)
 
