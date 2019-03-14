@@ -1,7 +1,35 @@
 // FONTS
-$font-stack: 'Merriweather', sans-serif;
+$font-stack: 'Merriweather',
+sans-serif;
 
 // COLORS
-$background-start: rgba(255,62,143,1);
-$background-end: rgba(255,186,143,1);
+$background-start: rgba(255, 62, 143, 1);
+$background-end: rgba(255, 186, 143, 1);
 $gray: #c1c1c1;
+$positive: #66BB6A;
+$danger: #ef5350;
+$positive-dark:#549d59;
+$danger-dark: #c44442;
+
+// BREAKPOINTS:
+$media-breakpoint-phone: 576px;
+$media-breakpoint-tab: 768px;
+$media-breakpoint-desktops: 992px;
+
+@mixin for-phone {
+    @media (max-width: $media-breakpoint-phone) {
+        @content;
+    }
+}
+
+@mixin for-tablet {
+    @media (max-width: $media-breakpoint-tab) {
+        @content;
+    }
+}
+
+@mixin for-desktop {
+    @media (min-width: $media-breakpoint-desktops) {
+        @content;
+    }
+}

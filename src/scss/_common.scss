@@ -1,0 +1,26 @@
+.btn {
+    border: none;
+    font-weight: bold;
+    color: #FAFAFA;
+    display: inline-block;
+    padding: 20px 20px;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+}
+
+.btn-positive {
+    background: $positive;
+
+    &:hover {
+        background: $positive-dark;
+    }
+}
+
+.btn-danger {
+    background: $danger;
+
+    &:hover {
+        background: $danger-dark;
+    }
+}
