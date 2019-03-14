@@ -15,13 +15,19 @@ module.exports = {
   },
   context: __dirname,
   devtool: debug ? "inline-sourcemap" : false,
-  entry: ["./src/js/scripts.js", "./src/scss/main.scss"],
+  entry: ["./src/scss/main.scss", "./src/js/scripts.js"],
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "scripts.min.js"
+    filename: "scripts.min.js",
+    libraryTarget: "var",
+    library: "DOMEvents"
   },
   module: {
     rules: [{
+      test: /\.(js|jsx)$/,
+      exclude: /node_modules/,
+      use: ["babel-loader"]
+    }, {
       test: /\.scss$/,
       use: [{
         loader: MiniCssExtractPlugin.loader,
@@ -34,12 +40,13 @@ module.exports = {
       loader: "html-loader"
     }, {
       test: /\.(png|jpg|gif)$/i,
-      use: [
-        {
-          loader: "url-loader",
-        }
-      ]
+      use: [{
+        loader: "url-loader",
+      }]
     }]
+  },
+  resolve: {
+    extensions: ["*", ".js", ".jsx"]
   },
   plugins: [
     new MiniCssExtractPlugin({
@@ -48,9 +55,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "src/index.html"
     }),
-    new CopyWebpackPlugin([
-      {from: "src/logo.ico", to: ""},
-      {from: "src/images", to: "images"}
+    new CopyWebpackPlugin([{
+        from: "src/logo.ico",
+        to: ""
+      },
+      {
+        from: "src/images",
+        to: "images"
+      }
     ])
   ],
   optimization: {

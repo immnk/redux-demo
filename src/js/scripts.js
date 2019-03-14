@@ -1,24 +1,21 @@
-(function() {
-  import { redux } from './redux';
-  const numberReducer = (state =0, action) => {
-    switch(action.type) {
-      case "INCREMENT":
-        return state + 1;
-      case "DECREMENT":
-        return state - 1;
-      default:
-        return state;
-    }
-  }
+import {
+  redux
+} from "./redux";
+import {
+  NumberReducer
+} from "./number-reducer";
 
-  const numberStore = redux(numberReducer);
+const numberStore = redux(NumberReducer);
+const render = () => {
+  const state = numberStore.getState();
+  document.getElementById("example-1__value").innerText = state;
+};
 
-  numberStore.subscribe(()=> {
-    const state = numberStore.getState();
-    document.getElementById("numberId").innerText = state;
+numberStore.subscribe(render);
+render();
+
+export function buttonClick(field) {
+  numberStore.dispatch({
+    type: field
   });
-
-  const buttonClick = (field) => {
-    numberStore.dispatch({type: field});
-  }
-})();
+}
