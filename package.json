@@ -7,10 +7,10 @@
     "lint": "eslint src/**/*.js --config .eslintrc.js ",
     "build:watch": "webpack --progress --color --watch --display-error-details",
     "serve": "lite-server -c=bs-config.json",
-    "build:prod": "webpack --mode=production --verbose",
+    "build:prod": "webpack --mode=production --verbose --progress",
     "start": "concurrently \"npm run build:watch\" \"npm run serve\"",
     "test": "cross-env NODE_ENV=test npm run lint && nyc --reporter=html --reporter=text mocha",
-    "coverage": "NODE_ENV=test nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
