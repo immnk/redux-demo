@@ -9,7 +9,7 @@
     "serve": "lite-server -c=bs-config.json",
     "build:prod": "webpack --mode=production --verbose",
     "start": "concurrently \"npm run build:watch\" \"npm run serve\"",
-    "test": "npm run lint && nyc --reporter=html --reporter=text mocha",
+    "test": "cross-env NODE_ENV=test npm run lint && nyc --reporter=html --reporter=text mocha",
     "coverage": "NODE_ENV=test nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
@@ -30,11 +30,15 @@
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
+    "@babel/register": "^7.0.0",
     "babel-loader": "^8.0.5",
+    "babel-plugin-istanbul": "^5.1.1",
+    "babel-polyfill": "^6.26.0",
     "chai": "^4.2.0",
     "concurrently": "^4.1.0",
     "copy-webpack-plugin": "^4.6.0",
     "coveralls": "^3.0.2",
+    "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
     "eslint": "^5.12.0",
     "file-loader": "^3.0.1",
@@ -47,7 +51,7 @@
     "mini-css-extract-plugin": "^0.5.0",
     "mocha": "^5.2.0",
     "node-sass": "^4.11.0",
-    "nyc": "^13.1.0",
+    "nyc": "^13.3.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "require-hooks": "0.0.6",
     "sass-loader": "^7.1.0",
@@ -55,5 +59,16 @@
     "url-loader": "^1.1.2",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1"
+  },
+  "nyc": {
+    "require": [
+      "@babel/register"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "sourceMap": false,
+    "instrument": false
   }
 }

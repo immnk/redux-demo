@@ -25,8 +25,13 @@ module.exports = {
   module: {
     rules: [{
       test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
-      use: ["babel-loader"]
+      exclude: /(node_modules|bower_components)/,
+      use: {
+        loader: "babel-loader",
+        options: {
+          presets: ["@babel/preset-env"]
+        }
+      }
     }, {
       test: /\.scss$/,
       use: [{
@@ -56,13 +61,13 @@ module.exports = {
       template: "src/index.html"
     }),
     new CopyWebpackPlugin([{
-        from: "src/logo.ico",
-        to: ""
-      },
-      {
-        from: "src/images",
-        to: "images"
-      }
+      from: "src/logo.ico",
+      to: ""
+    },
+    {
+      from: "src/images",
+      to: "images"
+    }
     ])
   ],
   optimization: {
