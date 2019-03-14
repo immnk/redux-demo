@@ -8,8 +8,8 @@
     "build:watch": "webpack --progress --color --watch --display-error-details",
     "serve": "lite-server -c=bs-config.json",
     "build:prod": "webpack --mode=production --verbose --progress",
-    "start": "concurrently \"npm run build:watch\" \"npm run serve\"",
-    "test": "cross-env NODE_ENV=test npm run lint && nyc --reporter=html --reporter=text mocha",
+    "start": "npm i && concurrently \"npm run build:watch\" \"npm run serve\"",
+    "test": "cross-env NODE_ENV=test npm run lint && nyc --reporter=lcov --reporter=text mocha",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
@@ -44,8 +44,6 @@
     "file-loader": "^3.0.1",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
-    "jsdom": "^13.1.0",
-    "jsdom-global": "^3.0.2",
     "lite-server": "^2.4.0",
     "lodash": "^4.17.11",
     "mini-css-extract-plugin": "^0.5.0",
